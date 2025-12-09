@@ -3,31 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Villa Habaraduwa - Official Website | Tropical Sanctuary</title>
+    <title>Little Villa Habaraduwa - Tropical Sanctuary (Foreigners Only)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. DARK MODE BASE STYLES */
+        :root {
+            /* Initial Dark Mode Colors */
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #004d40;
+            --section-bg: #1e1e1e;
+            --accent-color: #4ecdc4;
+            --cta-color: #ff6b6b;
+            --light-text: #ffffff;
+        }
+
+        /* Light Mode Classes (Toggled by JavaScript) */
+        .light-mode {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #00a896;
+            --section-bg: #f8f8f8;
+            --accent-color: #004d40;
+            --cta-color: #ff6b6b;
+            --light-text: #ffffff;
+        }
+
+        /* BASE STYLES */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0; /* Light text */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s, color 0.5s;
         }
 
         header {
-            background-color: #004d40; /* Dark Teal for header */
-            color: #ffffff;
+            background-color: var(--header-bg);
+            color: var(--light-text);
             padding: 25px;
             text-align: center;
         }
 
         header h1 {
+            font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
         }
 
-        /* Nav links and main section styling */
         nav ul {
             list-style: none;
             padding: 0;
@@ -40,33 +65,33 @@
         }
 
         nav a {
-            color: #4ecdc4; /* Light Accent color for links */
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #ffffff;
+            color: var(--light-text);
         }
 
         section {
             padding: 40px 10%;
             margin-bottom: 20px;
-            background-color: #1e1e1e; /* Slightly lighter dark section background */
+            background-color: var(--section-bg);
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             border-radius: 8px;
         }
 
         section h2 {
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            color: #4ecdc4; /* Accent color */
+            color: var(--accent-color);
             margin-bottom: 30px;
-            border-bottom: 2px solid #004d40; 
+            border-bottom: 2px solid var(--header-bg); 
             padding-bottom: 10px;
         }
         
-        /* General image styling */
         img {
             max-width: 100%;
             height: auto;
@@ -74,19 +99,10 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
-        /* Gallery and CTA Button styling */
-        .gallery-item {
-            width: 30%;
-            display: inline-block;
-            margin: 1.5%;
-            vertical-align: top;
-            text-align: center;
-        }
-
         .cta-button {
             display: inline-block;
             padding: 12px 25px;
-            background-color: #ff6b6b; /* Reddish CTA */
+            background-color: var(--cta-color);
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -99,51 +115,144 @@
             background-color: #e65c5c;
         }
 
-        /* Footer styling */
-        footer {
-            background-color: #000000;
-            color: #a0a0a0;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9em;
+        /* Gallery Grid Layout */
+        #gallery .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
-        /* Ensure images in the gallery are styled */
-        #gallery img {
-            height: 200px; /* Fixed height for uniformity */
+        .gallery-item {
+            width: 45%; /* Two columns */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .gallery-item img {
+            height: 250px; /* Uniform height for better look */
+            width: 100%;
             object-fit: cover;
+        }
+
+        /* Contact/Logo Styles */
+        .social-image-link {
+            text-decoration: none; 
+            display: inline-block; 
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-image-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-image-link img {
+            width: 50px; 
+            height: 50px; 
+            border-radius: 8px;
+        }
+        
+        /* Theme Switcher Button */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: var(--cta-color);
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Reviews Section Styles */
+        .review-card {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .review-card h4 {
+            color: var(--accent-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .star-rating {
+            color: #ffc107; /* Gold stars */
+            font-size: 1.1em;
+        }
+        
+        /* Form Styles */
+        #submit-review input, #submit-review textarea {
+            background-color: var(--section-bg); 
+            color: var(--text-color);
+            border: 1px solid #333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .gallery-item {
+                width: 100%; /* Single column on mobile */
+            }
+            #theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            .social-image-link {
+                margin: 0 5px;
+            }
         }
     </style>
 </head>
-<body>
+<body class="dark-mode"> <button id="theme-toggle" onclick="toggleTheme()">☀️</button>
 
     <header>
-        <h1>Little Villa Habaraduwa 🌴</h1>
-        <p>Your Tropical Sanctuary on the Southern Coast.</p>
+        <h1>Little Villa Habaraduwa</h1>
+        <p style="font-size: 1.2em; color: #ffc107;">A Private Tropical Sanctuary for Foreign Guests Only.</p>
         
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#amenities">Amenities</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="#contact">Contact & Book</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
-        <h2>Experience Authentic Southern Charm</h2>
-        <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 400px; object-fit: cover;">
-        <p>Experience the authentic Southern charm of Sri Lanka in our cozy, private villa. Perfectly located near the best beaches, Little Villa offers modern comfort combined with a genuine Sri Lankan welcome.</p>
+        <h2>Unwind in Serenity. Perfect for Romantic Couples.</h2>
         
-        <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">BOOK YOUR GETAWAY NOW</a>
+        <div style="text-align: center;">
+            <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 450px; object-fit: cover; width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+        </div>
+        
+        <p style="text-align: center; font-style: italic; font-weight: 600; margin-top: 20px;">
+            Experience the authentic Southern charm of Sri Lanka in our cozy, private villa. Exclusively offered to foreign visitors, Little Villa provides modern comfort combined with a secluded, romantic atmosphere near the best beaches.
+        </p>
+        
+        <div style="text-align: center;">
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">CHECK AVAILABILITY & BOOK</a>
+        </div>
     </section>
 
     <section id="amenities">
         <h2>Exclusive Villa Amenities & Comfort</h2>
         
-        <h3>Private & Exclusive Living</h3>
+        <h3>Your Private Getaway Includes:</h3>
         <ul>
             <li>**Air-Conditioned Bedroom:** Your cool escape from the tropical heat.</li>
             <li>**Attached Luxury Bathroom:** Featuring modern fittings and Hot Water facilities.</li>
@@ -151,110 +260,193 @@
             <li>**Private Balcony (20861.jpg):** A perfect spot for your morning tea or sunset view.</li>
         </ul>
 
-        <h3>Self-Catering & Dining</h3>
+        <h3>Added Convenience</h3>
         <ul>
-            <li>**Fully Equipped Mini Kitchen (20856.jpg):** Complete with a fridge, toaster, stove, and all necessary essentials.</li>
-            <li>**Private Dining Area (20862.jpg)**.</li>
+            <li>**Fully Equipped Mini Kitchen (20856.jpg):** Complete with a fridge, toaster, stove, and all necessary essentials for self-catering.</li>
             <li>**Washing Machine** access for hassle-free extended stays.</li>
-        </ul>
-
-        <h3>Connectivity</h3>
-        <ul>
             <li>**Fast & Reliable Internet:** Stay connected with **SLT-Fibre Internet (Wi-Fi)**.</li>
         </ul>
     </section>
 
     <section id="gallery">
-        <h2>Photo Gallery</h2>
-        <p>A visual tour of the villa's interior, exterior, and lush surroundings.</p>
+        <h2>Photo Gallery: Your Home Away From Home</h2>
         
-        <div class="gallery-item">
-            <img src="20001.jpg" alt="Towel Swans on Bed">
-            <p>Romantic Cozy and comfortable bed,designed for a restful sleep.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="20001.jpg" alt="Towel Swans on Bed">
+                <p>Romantic Cozy bed, designed for a restful sleep.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20002.jpg" alt="Cozy Bedroom View">
+                <p>The comfortable AC bedroom.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20007.jpg" alt="Kitchen Fridge">
+                <p>Compact and functional kitchen for self-catering.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20010.jpg" alt="Modern Bathroom Sink and Mirror">
+                <p>Modern fittings in the luxury bathroom.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20014.jpg" alt="Private Balcony Dining Area">
+                <p>Dining on the peaceful private veranda.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20015.jpg" alt="Lush Garden Entrance">
+                <p>Lush, private garden entrance.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Guest Testimonials: Loved by Travelers</h2>
+        
+        <div class="review-card">
+            <p>"Very cute and new apartment, everything is clean, new, and cozy with a well-equipped kitchen and a washing machine. Location is great and quiet, surrounded by the jungle. And the hosts are very friendly! I can only recommend."</p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Laura Sardinha (Local Guide)</h4>
         </div>
-        <div class="gallery-item">
-            <img src="20002.jpg" alt="Cozy Bedroom View">
-            <p>The comfortable AC bedroom with kitchen entrance.</p>
+        
+        <div class="review-card">
+            <p>"Great price, good location, amazing hosts. AC, solar panel hot water, private kitchen, and huge balcony. If you rent a bike, you have everything you need here. Best place I stayed in the south, highly recommend."</p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Ojan Kalhori (Local Guide)</h4>
         </div>
-        <div class="gallery-item">
-            <img src="20007.jpg" alt="Kitchen Fridge">
-            <p>Compact yet functional kitchen, perfect for small spaces with smart storage solutions.</p>
+        
+        <div class="review-card">
+            <p style="font-style: normal; margin-bottom: 5px;">"Отличная вилла! Все новое, чистое и уютное. Находится в 15 минутах ходьбы от океана. Хозяева очень гостеприимные и отзывчивые. Комфортное проживание для одного или двух человек. Есть все удобства, а также две террасы с видом на джунгли. Рекомендую!"</p>
+            
+            <p style="font-size: 0.9em; color: #ff6b6b; margin-top: 10px; border-top: 1px solid #333; padding-top: 5px; font-style: italic;">
+                **English Translation:** Excellent villa! Everything is new, clean and cozy. Located just 15 minutes walk from the ocean. The hosts are very hospitable and responsive. Comfortable stay for one or two people. There are all the facilities, as well as two terraces with jungle views. Recommended!
+            </p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Tatiana Senchenko (Verified Guest)</h4>
         </div>
-        <div class="gallery-item">
-            <img src="20010.jpg" alt="Modern Bathroom Sink and Mirror">
-            <p>Modern fittings in the attached bathroom.</p>
-        </div>
-        <div class="gallery-item">
-            <img src="20014.jpg" alt="Private Balcony Dining Area">
-            <p>Dining on the private varenda.</p>
-        </div>
-        <div class="gallery-item">
-            <img src="20015.jpg" alt="Lush Garden Entrance">
-            <p>The beautiful, lush garden entrance.</p>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">READ MORE REVIEWS ON BOOKING.COM</a>
         </div>
     </section>
 
-    <section id="location">
-        <h2>Location: Habaraduwa</h2>
-        <p>Little Villa is ideally situated to explore the beauty of the Southern Province.</p>
-        <ul>
-            <li>**Nearby Beaches:** Unawatuna beach and Ahangama beach are both reachable within a quick **30 minutes**.</li>
-        </ul>
+    <section id="submit-review">
+        <h2>Share Your Experience!</h2>
+        <p style="text-align: center;">We love hearing from our valued foreign guests. Submit your review below and help us share the magic of Little Villa Habaraduwa.</p>
         
-        <h3>View on Map</h3>
-        <a href="https://maps.app.goo.gl/kEeePL35EVDY4B7" target="_blank" class="cta-button">Get Directions (Google Maps)</a>
+        <form action="https://formsubmit.co/littlevilla219@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: var(--bg-color); border-radius: 8px;">
+            
+            <input type="text" name="_honey" style="display:none;">
+            <input type="hidden" name="_next" value="https://[ඔබේ GitHub Pages URL එක]/thank-you.html"> 
+            <input type="hidden" name="_subject" value="New Guest Review Submission from Little Villa Website!">
+
+            <div style="margin-bottom: 15px;">
+                <label for="name" style="display: block; margin-bottom: 5px; color: var(--text-color);">Your Name:</label>
+                <input type="text" name="name" id="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label for="country" style="display: block; margin-bottom: 5px; color: var(--text-color);">Country:</label>
+                <input type="text" name="country" id="country" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="review" style="display: block; margin-bottom: 5px; color: var(--text-color);">Your Review/Comments (English Only):</label>
+                <textarea name="review" id="review" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+            </div>
+            
+            <div style="text-align: center;">
+                <button type="submit" class="cta-button" style="border: none;">SUBMIT REVIEW</button>
+            </div>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #ff6b6b;">*Note: Reviews will be manually added to the website after verification.</p>
     </section>
 
     <section id="contact">
-        <h2>Contact & Book</h2>
-        <p>Use the links below to check availability or contact us directly:</p>
+        <h2>Contact & Book Directly</h2>
+        <p>Connect with us instantly to check dates and book your exclusive stay:</p>
         
         <div style="text-align: center; margin-top: 30px;">
             
-            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
-                <img src="booking-logo.png" alt="Booking.com Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
-                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Book on Booking.com</p>
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="social-image-link">
+                <img src="booking-logo.png" alt="Booking.com Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Book on Booking.com</p>
             </a>
             
-            <a href="https://wa.me/94786298651" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
-                <img src="whatsapp-logo.png" alt="WhatsApp Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
-                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">WhatsApp Chat</p>
+            <a href="https://wa.me/94786298651" target="_blank" class="social-image-link">
+                <img src="whatsapp-logo.png" alt="WhatsApp Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">WhatsApp Chat</p>
             </a>
             
-            <a href="tel:+94786298651" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
-                <img src="phone-logo.png" alt="Phone Call Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
-                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Call Now</p>
+            <a href="tel:+94786298651" target="_blank" class="social-image-link">
+                <img src="phone-logo.png" alt="Phone Call Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Call Now</p>
             </a>
 
-            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
-                <img src="maps-logo.png" alt="Google Maps Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
-                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">View on Google Maps</p>
+            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="social-image-link">
+                <img src="maps-logo.png" alt="Google Maps Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">View on Google Maps</p>
             </a>
             
-            <a href="https://www.facebook.com/share/p/1A9ho1Cu1b/" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
-                <img src="facebook-logo.png" alt="Facebook Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
-                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Find us on Facebook</p>
+            <a href="https://www.facebook.com/share/p/1A9ho1Cu1b/" target="_blank" class="social-image-link">
+                <img src="facebook-logo.png" alt="Facebook Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Find us on Facebook</p>
             </a>
             
         </div>
         
-        <div style="text-align: center; margin-top: 20px; color: #4ecdc4; font-weight: bold;">
+        <div style="text-align: center; margin-top: 20px; color: var(--accent-color); font-weight: bold;">
             Mobile: +94 78 629 8651
         </div>
     </section>
 
+    <section id="location">
+        <h2>Explore the South Coast</h2>
+        <p>Little Villa is ideally situated to explore the beauty of the Southern Province, just a quick Tuk-Tuk ride to:**</p>
+        <ul>
+            <li>**Unawatuna Beach (30 Mins):** Vibrant beach life and dining.</li>
+            <li>**Ahangama (30 Mins):** Famous for surfing and stilt fishermen.</li>
+            <li>**Galle Fort (45 Mins):** Historical sites and boutique shopping.</li>
+        </ul>
+        
+        <div style="text-align: center;">
+            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="cta-button">GET DIRECTIONS</a>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2025 Little Villa Habaraduwa. All Rights Reserved.</p>
+        <p>© 2025 Little Villa Habaraduwa. Exclusive Accommodation for Foreign Guests.</p>
+        <p style="font-size: 0.8em; margin-top: 5px;">
+            Developed by Pamindu Randiya & Gemini AI
+        </p>
     </footer>
+    
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const button = document.getElementById('theme-toggle');
+            
+            // Change button icon based on the current mode
+            if (body.classList.contains('light-mode')) {
+                button.textContent = '🌙'; // Moon icon for switching to dark
+                localStorage.setItem('theme', 'light');
+            } else {
+                button.textContent = '☀️'; // Sun icon for switching to light
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        // Check local storage on load to remember user preference
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('theme') === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('theme-toggle').textContent = '🌙';
+            } else {
+                 document.getElementById('theme-toggle').textContent = '☀️';
+            }
+        });
+    </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
