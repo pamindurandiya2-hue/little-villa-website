@@ -1,22 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Villa Habaraduwa - Official Website | Your Tropical Sanctuary</title>
-    <link rel="stylesheet" href="style.css"> 
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Villa Habaraduwa - Official Website | Your Tropical Sanctuary</title>
+    <title>Little Villa Habaraduwa - Official Website | Tropical Sanctuary</title>
+    
     <style>
-        /* Basic inline styles for readability - remove this when adding external CSS */
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; }
-        header, footer, section { padding: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; }
-        img { max-width: 100%; height: auto; margin-bottom: 10px; display: block; }
-        .gallery-item { width: 30%; display: inline-block; margin-right: 3%; }
-        .cta-button { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+        /* 1. DARK MODE BASE STYLES */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text */
+        }
+
+        header {
+            background-color: #004d40; /* Dark Teal for header */
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+        }
+
+        /* Nav links and main section styling */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 18px;
+        }
+
+        nav a {
+            color: #4ecdc4; /* Light Accent color for links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        section {
+            padding: 40px 10%;
+            margin-bottom: 20px;
+            background-color: #1e1e1e; /* Slightly lighter dark section background */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            border-radius: 8px;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #4ecdc4; /* Accent color */
+            margin-bottom: 30px;
+            border-bottom: 2px solid #004d40; 
+            padding-bottom: 10px;
+        }
+        
+        /* General image styling */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Gallery and CTA Button styling */
+        .gallery-item {
+            width: 30%;
+            display: inline-block;
+            margin: 1.5%;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff6b6b; /* Reddish CTA */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e65c5c;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #000000;
+            color: #a0a0a0;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Ensure images in the gallery are styled */
+        #gallery img {
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +134,7 @@
 
     <section id="home">
         <h2>Experience Authentic Southern Charm</h2>
-        <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa">
+        <img src="20867.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 400px; object-fit: cover;">
         <p>Experience the authentic Southern charm of Sri Lanka in our cozy, private villa. Perfectly located near the best beaches, Little Villa offers modern comfort combined with a genuine Sri Lankan welcome.</p>
         
         <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">BOOK YOUR GETAWAY NOW</a>
@@ -51,14 +147,14 @@
         <ul>
             <li>**Air-Conditioned Bedroom:** Your cool escape from the tropical heat.</li>
             <li>**Attached Luxury Bathroom:** Featuring modern fittings and Hot Water facilities.</li>
-            <li>**Dedicated Dressing Room.**</li>
-            <li>**Private Varenda (Balcony):** A perfect spot for your morning tea or sunset view.</li>
+            <li>**Dedicated Dressing Room (20848.jpg)**.</li>
+            <li>**Private Balcony (20861.jpg):** A perfect spot for your morning tea or sunset view.</li>
         </ul>
 
         <h3>Self-Catering & Dining</h3>
         <ul>
-            <li>**Fully Equipped Mini Kitchen:** Complete with a fridge, toaster, stove, and all necessary essentials.</li>
-            <li>**Private Restaurant:** Enjoy delicious meals prepared on-site, exclusively for our guests.</li>
+            <li>**Fully Equipped Mini Kitchen (20856.jpg):** Complete with a fridge, toaster, stove, and all necessary essentials.</li>
+            <li>**Private Dining Area (20862.jpg)**.</li>
             <li>**Washing Machine** access for hassle-free extended stays.</li>
         </ul>
 
@@ -73,20 +169,28 @@
         <p>A visual tour of the villa's interior, exterior, and lush surroundings.</p>
         
         <div class="gallery-item">
-            <img src="20004.jpg" alt="Cozy Bedroom">
-            <p>The comfortable AC bedroom.</p>
+            <img src="20844.jpg" alt="Towel Swans on Bed">
+            <p>Romantic Room Setup.</p>
         </div>
         <div class="gallery-item">
-            <img src="20005.jpg" alt="Private Balcony Dining">
+            <img src="20849.jpg" alt="Cozy Bedroom View">
+            <p>The comfortable AC bedroom with kitchen entrance.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="20857.jpg" alt="Kitchen Fridge">
+            <p>Modern Fridge and amenities.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="20852.jpg" alt="Modern Bathroom Sink and Mirror">
+            <p>Modern fittings in the attached bathroom.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="20861.jpg" alt="Private Balcony Dining Area">
             <p>Dining on the private varenda.</p>
         </div>
         <div class="gallery-item">
-            <img src="20859.jpg" alt="Equipped Kitchen">
-            <p>The fully equipped mini kitchen area.</p>
-        </div>
-        <div class="gallery-item">
-            <img src="20853.jpg" alt="Modern Bathroom Sink">
-            <p>Modern fittings in the attached bathroom.</p>
+            <img src="20864.jpg" alt="Lush Garden Entrance">
+            <p>The beautiful, lush garden entrance.</p>
         </div>
     </section>
 
@@ -98,30 +202,50 @@
         </ul>
         
         <h3>View on Map</h3>
-        <a href="https://maps.app.goo.gl/k4TeePpL35EVDyWB7" target="_blank" class="cta-button">Get Directions (Google Maps)</a>
+        <a href="https://maps.app.goo.gl/kEeePL35EVDY4B7" target="_blank" class="cta-button">Get Directions (Google Maps)</a>
     </section>
 
     <section id="contact">
-        <h2>Contact & Booking</h2>
-        <p>For instant reservations and availability, please use our partner link:</p>
-        <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button" style="background-color: #ff6a00;">Book on Booking.com</a>
+        <h2>Contact & Book</h2>
+        <p>Use the links below to check availability or contact us directly:</p>
         
-        <h3>Direct Enquiries</h3>
-        <p>For urgent questions or other details, reach us via WhatsApp:</p>
-        <p>**WhatsApp / Mobile:** +94 78 629 8651</p>
-        <p><a href="https://wa.me/94786298651" target="_blank">Chat with us on WhatsApp</a></p>
+        <div style="text-align: center; margin-top: 30px;">
+            
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
+                <img src="booking-logo.png" alt="Booking.com Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
+                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Book on Booking.com</p>
+            </a>
+            
+            <a href="https://wa.me/94786298651" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
+                <img src="whatsapp-logo.png" alt="WhatsApp Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
+                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">WhatsApp Chat</p>
+            </a>
+            
+            <a href="tel:+94786298651" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
+                <img src="phone-logo.png" alt="Phone Call Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
+                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Call Now</p>
+            </a>
+
+            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
+                <img src="maps-logo.png" alt="Google Maps Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
+                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">View on Google Maps</p>
+            </a>
+            
+            <a href="https://www.facebook.com/share/p/1A9ho1Cu1b/" target="_blank" class="social-image-link" style="text-decoration: none; display: inline-block; margin: 0 10px;">
+                <img src="facebook-logo.png" alt="Facebook Logo" style="width: 50px; height: 50px; margin: 10px; border-radius: 8px;">
+                <p style="margin: 5px 0 20px 0; color: #e0e0e0;">Find us on Facebook</p>
+            </a>
+            
+        </div>
         
-        <h3>Follow Us</h3>
-        <a href="https://www.facebook.com/share/p/1A9ho1Cu1b/" target="_blank">Find us on Facebook</a>
+        <div style="text-align: center; margin-top: 20px; color: #4ecdc4; font-weight: bold;">
+            Mobile: +94 78 629 8651
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Little Villa. All Rights Reserved. | Habaraduwa, Sri Lanka.</p>
+        <p>© 2025 Little Villa Habaraduwa. All Rights Reserved.</p>
     </footer>
 
 </body>
 </html>
-
-
-
-
