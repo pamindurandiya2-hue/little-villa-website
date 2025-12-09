@@ -1,0 +1,97 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #1a535c; /* Deep Teal */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 40px 10%;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    text-align: center;
+    color: #1a535c;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #4ecdc4; /* Accent color */
+    padding-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item {
+    width: 30%;
+    display: inline-block;
+    margin: 1.5%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff6b6b; /* Reddish CTA */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e65c5c;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Ensure images in the gallery are styled */
+#gallery img {
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover;
+}
