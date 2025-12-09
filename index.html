@@ -97,6 +97,7 @@
             height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            cursor: pointer; /* Enable pointer for zoom feature */
         }
 
         .cta-button {
@@ -200,6 +201,54 @@
             border: 1px solid #333;
         }
 
+        /* --- New CSS for Image Zoom (Modal/Lightbox) --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            padding-top: 50px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .modal-content, #caption {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 600px) {
             .gallery-item {
@@ -237,7 +286,7 @@
         <h2>Unwind in Serenity. Perfect for Romantic Couples.</h2>
         
         <div style="text-align: center;">
-            <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 450px; object-fit: cover; width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+            <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 450px; object-fit: cover; width: 100%; max-width: 600px; display: block; margin: 0 auto;" onclick="openModal(this)">
         </div>
         
         <p style="text-align: center; font-style: italic; font-weight: 600; margin-top: 20px;">
@@ -273,27 +322,27 @@
         
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="20001.jpg" alt="Towel Swans on Bed">
+                <img src="20001.jpg" alt="Towel Swans on Bed" onclick="openModal(this)">
                 <p>Romantic Cozy bed, designed for a restful sleep.</p>
             </div>
             <div class="gallery-item">
-                <img src="20002.jpg" alt="Cozy Bedroom View">
+                <img src="20002.jpg" alt="Cozy Bedroom View" onclick="openModal(this)">
                 <p>The comfortable AC bedroom.</p>
             </div>
             <div class="gallery-item">
-                <img src="20007.jpg" alt="Kitchen Fridge">
+                <img src="20007.jpg" alt="Kitchen Fridge" onclick="openModal(this)">
                 <p>Compact and functional kitchen for self-catering.</p>
             </div>
             <div class="gallery-item">
-                <img src="20010.jpg" alt="Modern Bathroom Sink and Mirror">
+                <img src="20010.jpg" alt="Modern Bathroom Sink and Mirror" onclick="openModal(this)">
                 <p>Modern fittings in the luxury bathroom.</p>
             </div>
             <div class="gallery-item">
-                <img src="20014.jpg" alt="Private Balcony Dining Area">
+                <img src="20014.jpg" alt="Private Balcony Dining Area" onclick="openModal(this)">
                 <p>Dining on the peaceful private veranda.</p>
             </div>
             <div class="gallery-item">
-                <img src="20015.jpg" alt="Lush Garden Entrance">
+                <img src="20015.jpg" alt="Lush Garden Entrance" onclick="openModal(this)">
                 <p>Lush, private garden entrance.</p>
             </div>
             </div>
@@ -413,6 +462,11 @@
             <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="cta-button">GET DIRECTIONS</a>
         </div>
     </section>
+    
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="document.getElementById('imageModal').style.display='none'">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
     <footer>
         <p>© 2025 Little Villa Habaraduwa. Exclusive Accommodation for Foreign Guests.</p>
@@ -422,17 +476,17 @@
     </footer>
     
     <script>
+        // 1. Theme Switching Function
         function toggleTheme() {
             const body = document.body;
             body.classList.toggle('light-mode');
             const button = document.getElementById('theme-toggle');
             
-            // Change button icon based on the current mode
             if (body.classList.contains('light-mode')) {
-                button.textContent = '🌙'; // Moon icon for switching to dark
+                button.textContent = '🌙';
                 localStorage.setItem('theme', 'light');
             } else {
-                button.textContent = '☀️'; // Sun icon for switching to light
+                button.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -446,6 +500,23 @@
                  document.getElementById('theme-toggle').textContent = '☀️';
             }
         });
+
+        // 2. Image Modal/Lightbox Function
+        function openModal(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('img01');
+            
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+
+        // Close the modal when the user clicks anywhere outside of the image
+        window.onclick = function(event) {
+          const modal = document.getElementById('imageModal');
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
     </script>
 
 </body>
