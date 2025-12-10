@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Villa Habaraduwa - Tropical Sanctuary (Foreigners Only)</title>
     
+    <link rel="icon" type="image/png" href="favicon.png"> 
+    
+    <meta name="description" content="Little Villa Habaraduwa: Private, tropical sanctuary for foreigners near Unawatuna. Includes AC, mini kitchen, and high-speed Wi-Fi. Book direct!">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -30,10 +34,11 @@
             --light-text: #ffffff;
         }
 
-        /* BASE STYLES */
+        /* BASE STYLES - UPDATED */
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7; /* UI Improvement 2: Line Spacing වැඩි කිරීම */
+            letter-spacing: 0.02em; /* UI Improvement 2: අකුරු අතර කුඩා ඉඩක් */
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
@@ -44,13 +49,14 @@
         header {
             background-color: var(--header-bg);
             color: var(--light-text);
-            padding: 25px;
+            padding: 30px; /* UI Improvement 2: Padding වැඩි කිරීම */
             text-align: center;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
             margin-bottom: 5px;
+            letter-spacing: 0.08em; /* UI Improvement 2: H1 සඳහා විශේෂ ඉඩක් */
         }
 
         nav ul {
@@ -79,17 +85,20 @@
             padding: 40px 10%;
             margin-bottom: 20px;
             background-color: var(--section-bg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-            border-radius: 8px;
+            /* UI Improvement 1: වඩාත් සුඛෝපභෝගී Shadow එකක් */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+            border-radius: 12px; /* UI Improvement 1: වටකුරු දාර වැඩි කිරීම */
         }
 
         section h2 {
             font-family: 'Playfair Display', serif;
             text-align: center;
             color: var(--accent-color);
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--header-bg); 
-            padding-bottom: 10px;
+            margin-bottom: 40px; /* UI Improvement 3: ඉඩ වැඩි කිරීම */
+            /* UI Improvement 3: වඩාත් ආකර්ෂණීය double line border */
+            border-bottom: 3px double var(--header-bg); 
+            padding-bottom: 15px; 
+            letter-spacing: 0.05em; 
         }
         
         /* General image styling (Fixing blue overlay issue) */
@@ -270,7 +279,8 @@
         }
     </style>
 </head>
-<body class="dark-mode"> <button id="theme-toggle" onclick="toggleTheme()">☀️</button>
+<body class="dark-mode"> 
+    <button id="theme-toggle" onclick="toggleTheme()">☀️</button>
 
     <header>
         <h1>Little Villa Habaraduwa</h1>
@@ -308,17 +318,17 @@
         
         <h3>Your Private Getaway Includes:</h3>
         <ul>
-            <li>**Air-Conditioned Bedroom:** Your cool escape from the tropical heat.</li>
-            <li>**Attached Luxury Bathroom:** Featuring modern fittings and Hot Water facilities.</li>
-            <li>**Dedicated Dressing Room **.</li>
-            <li>**Private Balcony :** A perfect spot for your morning tea or sunset view.</li>
+            <li><strong>Air-Conditioned Bedroom:</strong> Your cool escape from the tropical heat.</li>
+            <li><strong>Attached Luxury Bathroom:</strong> Featuring modern fittings and Hot Water facilities.</li>
+            <li><strong>Dedicated Dressing Room</strong>.</li>
+            <li><strong>Private Balcony:</strong> A perfect spot for your morning tea or sunset view.</li>
         </ul>
 
         <h3>Added Convenience</h3>
         <ul>
-            <li>**Fully Equipped Mini Kitchen :** Complete with a fridge, toaster, stove, and all necessary essentials for self-catering.</li>
-            <li>**Washing Machine** access for hassle-free extended stays.</li>
-            <li>**Fast & Reliable Internet:** Stay connected with **SLT-Fibre Internet (Wi-Fi)**.</li>
+            <li><strong>Fully Equipped Mini Kitchen:</strong> Complete with a fridge, toaster, stove, and all necessary essentials for self-catering.</li>
+            <li><strong>Washing Machine</strong> access for hassle-free extended stays.</li>
+            <li><strong>Fast & Reliable Internet:</strong> Stay connected with <strong>SLT-Fibre Internet (Wi-Fi)</strong>.</li>
         </ul>
     </section>
 
@@ -396,7 +406,9 @@
         <form action="https://formsubmit.co/littlevilla219@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: var(--bg-color); border-radius: 8px;">
             
             <input type="text" name="_honey" style="display:none;">
-            <input type="hidden" name="_next" value="https://[ඔබේ GitHub Pages URL එක]/thank-you.html"> 
+            
+            <input type="hidden" name="_next" value="https://littlevillahabaraduwa.com/#reviews"> 
+            
             <input type="hidden" name="_subject" value="New Guest Review Submission from Little Villa Website!">
 
             <div style="margin-bottom: 15px;">
@@ -443,7 +455,7 @@
                 <p style="margin: 5px 0 20px 0; color: var(--text-color);">Call Now</p>
             </a>
 
-            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="social-image-link">
+            <a href="https://maps.app.goo.gl/3A74B8c9R8L6GqjV8" target="_blank" class="social-image-link">
                 <img src="maps-logo.png" alt="Google Maps Logo">
                 <p style="margin: 5px 0 20px 0; color: var(--text-color);">View on Google Maps</p>
             </a>
@@ -462,15 +474,15 @@
 
     <section id="location">
         <h2>Explore the South Coast</h2>
-        <p>Little Villa is ideally situated to explore the beauty of the Southern Province, just a quick Tuk-Tuk ride to:**</p>
+        <p>Little Villa is ideally situated to explore the beauty of the Southern Province, just a quick Tuk-Tuk ride to:</p>
         <ul>
-            <li>**Unawatuna Beach (30 Mins):** Vibrant beach life and dining.</li>
-            <li>**Ahangama (30 Mins):** Famous for surfing and stilt fishermen.</li>
-            <li>**Galle Fort (45 Mins):** Historical sites and boutique shopping.</li>
+            <li><strong>Unawatuna Beach (30 Mins):</strong> Vibrant beach life and dining.</li>
+            <li><strong>Ahangama (30 Mins):</strong> Famous for surfing and stilt fishermen.</li>
+            <li><strong>Galle Fort (45 Mins):</strong> Historical sites and boutique shopping.</li>
         </ul>
         
         <div style="text-align: center;">
-            <a href="https://maps.app.goo.gl/rWktSpQCqXuCJYsF6" target="_blank" class="cta-button">GET DIRECTIONS</a>
+            <a href="https://maps.app.goo.gl/3A74B8c9R8L6GqjV8" target="_blank" class="cta-button">GET DIRECTIONS</a>
         </div>
     </section>
     
