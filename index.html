@@ -3,66 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Villa Habaraduwa - Tropical Sanctuary</title>
+    <title>Little Villa Habaraduwa - Tropical Sanctuary (Foreigners Only)</title>
+    
     <link rel="icon" type="image/png" href="favicon.png"> 
+    
+    <meta name="description" content="Little Villa Habaraduwa: Private, tropical sanctuary for foreigners near Unawatuna. Includes AC, mini kitchen, and high-speed Wi-Fi. Book direct!">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #121212; --text-color: #e0e0e0; --header-bg: #004d40;
-            --section-bg: #1e1e1e; --accent-color: #4ecdc4; --cta-color: #ff6b6b; --light-text: #ffffff;
+            /* Initial Dark Mode Colors */
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #004d40;
+            --section-bg: #1e1e1e;
+            --accent-color: #4ecdc4;
+            --cta-color: #ff6b6b;
+            --light-text: #ffffff;
         }
+
+        /* Light Mode Classes (Toggled by JavaScript) */
         .light-mode {
-            --bg-color: #ffffff; --text-color: #333333; --header-bg: #00a896;
-            --section-bg: #f8f8f8; --accent-color: #004d40; --cta-color: #ff6b6b;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --header-bg: #00a896;
+            --section-bg: #f8f8f8;
+            --accent-color: #004d40;
+            --cta-color: #ff6b6b;
+            --light-text: #ffffff;
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; transition: 0.5s; }
-        header { background-color: var(--header-bg); color: var(--light-text); padding: 30px; text-align: center; }
-        header h1 { font-family: 'Playfair Display', serif; letter-spacing: 2px; }
+        /* BASE STYLES - UPDATED */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7; /* UI Improvement 2: Line Spacing වැඩි කිරීම */
+            letter-spacing: 0.02em; /* UI Improvement 2: අකුරු අතර කුඩා ඉඩක් */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--light-text);
+            padding: 30px; /* UI Improvement 2: Padding වැඩි කිරීම */
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 5px;
+            letter-spacing: 0.08em; /* UI Improvement 2: H1 සඳහා විශේෂ ඉඩක් */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 18px;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--light-text);
+        }
+
+        section {
+            padding: 40px 10%;
+            margin-bottom: 20px;
+            background-color: var(--section-bg);
+            /* UI Improvement 1: වඩාත් සුඛෝපභෝගී Shadow එකක් */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+            border-radius: 12px; /* UI Improvement 1: වටකුරු දාර වැඩි කිරීම */
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 40px; /* UI Improvement 3: ඉඩ වැඩි කිරීම */
+            /* UI Improvement 3: වඩාත් ආකර්ෂණීය double line border */
+            border-bottom: 3px double var(--header-bg); 
+            padding-bottom: 15px; 
+            letter-spacing: 0.05em; 
+        }
         
-        nav ul { list-style: none; padding: 0; text-align: center; }
-        nav ul li { display: inline; margin: 0 15px; }
-        nav a { color: var(--accent-color); text-decoration: none; font-weight: 600; }
-
-        section { padding: 40px 10%; margin: 20px; background-color: var(--section-bg); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        h2 { font-family: 'Playfair Display', serif; color: var(--accent-color); text-align: center; border-bottom: 2px solid var(--header-bg); padding-bottom: 10px; }
-
-        /* Video Styles - Controlled Size */
-        .video-wrapper { max-width: 700px; margin: 20px auto; position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        video { width: 100%; display: block; }
-        .mute-btn { position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; border: none; padding: 8px; border-radius: 50%; cursor: pointer; }
-
-        /* Gallery Styles */
-        .gallery-grid { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 15px; }
-        .gallery-item { width: 45%; text-align: center; margin-bottom: 15px; }
-        .gallery-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; cursor: pointer; }
+        /* General image styling (Fixing blue overlay issue) */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
         
-        /* Hidden Extended Gallery */
-        #extended-gallery { display: none; margin-top: 30px; border-top: 1px solid #444; padding-top: 20px; }
-        .filter-btns { text-align: center; margin-bottom: 20px; }
-        .filter-btn { background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 5px 15px; cursor: pointer; border-radius: 20px; margin: 5px; }
-        .filter-btn.active { background: var(--accent-color); color: white; }
+        /* Set pointer cursor ONLY for clickable gallery images */
+        .gallery-item img, #home img {
+            cursor: pointer;
+        }
 
-        .cta-button { display: inline-block; padding: 12px 25px; background-color: var(--cta-color); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px; }
-        .social-image-link { display: inline-block; margin: 10px; text-align: center; text-decoration: none; color: var(--text-color); }
-        .social-image-link img { width: 50px; height: 50px; border-radius: 8px; }
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--cta-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
 
-        #theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 10px; border-radius: 50%; border: none; background: var(--cta-color); color: white; cursor: pointer; }
+        .cta-button:hover {
+            background-color: #e65c5c;
+        }
 
-        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); padding-top: 50px; }
-        .modal-content { margin: auto; display: block; width: 80%; max-width: 800px; }
-        .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; cursor: pointer; }
+        /* Gallery Grid Layout */
+        #gallery .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
 
-        @media (max-width: 600px) { .gallery-item { width: 100%; } }
+        .gallery-item {
+            width: 45%; /* Two columns */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .gallery-item img {
+            height: 250px; /* Uniform height for better look */
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact/Logo Styles */
+        .social-image-link {
+            text-decoration: none; 
+            display: inline-block; 
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-image-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-image-link img {
+            width: 50px; 
+            height: 50px; 
+            border-radius: 8px;
+        }
+        
+        /* Theme Switcher Button */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: var(--cta-color);
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Reviews Section Styles */
+        .review-card {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .review-card h4 {
+            color: var(--accent-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .star-rating {
+            color: #ffc107; /* Gold stars */
+            font-size: 1.1em;
+        }
+        
+        /* Form Styles */
+        #submit-review input, #submit-review textarea {
+            background-color: var(--section-bg); 
+            color: var(--text-color);
+            border: 1px solid #333;
+        }
+
+        /* --- New CSS for Image Zoom (Modal/Lightbox) --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2000; /* Sit on top */
+            padding-top: 50px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .modal-content, #caption {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .gallery-item {
+                width: 100%; /* Single column on mobile */
+            }
+            #theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            .social-image-link {
+                margin: 0 5px;
+            }
+        }
     </style>
 </head>
-<body class="dark-mode">
+<body class="dark-mode"> 
     <button id="theme-toggle" onclick="toggleTheme()">☀️</button>
 
     <header>
         <h1>Little Villa Habaraduwa</h1>
-        <p style="color: #ffc107;">A Private Tropical Sanctuary for Foreign Guests Only.</p>
+        <p style="font-size: 1.2em; color: #ffc107;">A Private Tropical Sanctuary for Foreign Guests Only.</p>
+        
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -75,112 +298,249 @@
     </header>
 
     <section id="home">
-        <h2>Unwind in Serenity.</h2>
-        <div class="video-wrapper">
-            <video id="villaVideo" autoplay loop muted playsinline>
-                <source src="Littlevillavdeo.mp4" type="video/mp4">
-            </video>
-            <button class="mute-btn" onclick="toggleMute()">🔇</button>
-        </div>
-        <p style="text-align: center; font-style: italic;">"Experience authentic Southern charm."</p>
+        <h2>Unwind in Serenity. Perfect for Romantic Couples.</h2>
+        
         <div style="text-align: center;">
-            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">BOOK ON BOOKING.COM</a>
-            <a href="https://www.airbnb.co.uk/rooms/1581836913771660159" target="_blank" class="cta-button" style="background-color: #FF5A5F;">BOOK ON AIRBNB</a>
+            <img src="20003.jpg" alt="Little Villa Exterior View at Habaraduwa" style="max-height: 450px; object-fit: cover; width: 100%; max-width: 600px; display: block; margin: 0 auto;" onclick="openModal(this)">
+        </div>
+        
+        <p style="text-align: center; font-style: italic; font-weight: 600; margin-top: 20px;">
+            Experience the authentic Southern charm of Sri Lanka in our cozy, private villa. Exclusively offered to foreign visitors, Little Villa provides modern comfort combined with a secluded, romantic atmosphere near the best beaches.
+        </p>
+        
+        <div style="text-align: center;">
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">CHECK AVAILABILITY & BOOK</a>
         </div>
     </section>
 
     <section id="amenities">
-        <h2>Exclusive Villa Amenities</h2>
+        <h2>Exclusive Villa Amenities & Comfort</h2>
+        
+        <h3>Your Private Getaway Includes:</h3>
         <ul>
-            <li><strong>Air-Conditioned Bedroom:</strong> Cool escape from heat.</li>
-            <li><strong>Luxury Bathroom:</strong> Hot water & modern fittings.</li>
-            <li><strong>Mini Kitchen:</strong> Fridge, stove, toaster, and essentials.</li>
-            <li><strong>Fast Wi-Fi:</strong> SLT-Fibre Internet.</li>
-            <li><strong>Washing Machine:</strong> For long stays.</li>
+            <li><strong>Air-Conditioned Bedroom:</strong> Your cool escape from the tropical heat.</li>
+            <li><strong>Attached Luxury Bathroom:</strong> Featuring modern fittings and Hot Water facilities.</li>
+            <li><strong>Dedicated Dressing Room</strong>.</li>
+            <li><strong>Private Balcony:</strong> A perfect spot for your morning tea or sunset view.</li>
+        </ul>
+
+        <h3>Added Convenience</h3>
+        <ul>
+            <li><strong>Fully Equipped Mini Kitchen:</strong> Complete with a fridge, toaster, stove, and all necessary essentials for self-catering.</li>
+            <li><strong>Washing Machine</strong> access for hassle-free extended stays.</li>
+            <li><strong>Fast & Reliable Internet:</strong> Stay connected with <strong>SLT-Fibre Internet (Wi-Fi)</strong>.</li>
         </ul>
     </section>
 
     <section id="gallery">
-        <h2>Photo Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="20003.jpg" onclick="openModal(this)"><p>Exterior View</p></div>
-            <div class="gallery-item"><img src="20001.jpg" onclick="openModal(this)"><p>Cozy Bed</p></div>
-        </div>
+        <h2>Photo Gallery: Your Home Away From Home</h2>
         
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="cta-button" style="background-color: var(--header-bg);" onclick="toggleExtendedGallery()">EXPLORE ALL PHOTOS</button>
-        </div>
-
-        <div id="extended-gallery">
-            <div class="filter-btns">
-                <button class="filter-btn active" onclick="filterImg('all')">All</button>
-                <button class="filter-btn" onclick="filterImg('room')">Rooms</button>
-                <button class="filter-btn" onclick="filterImg('kitchen')">Kitchen</button>
-                <button class="filter-btn" onclick="filterImg('garden')">Garden</button>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="20001.jpg" alt="Towel Swans on Bed" onclick="openModal(this)">
+                <img src="20018.jpg" alt="Towel Swans on Bed" onclick="openModal(this)">
+                <p>Romantic Cozy bed, designed for a restful sleep.</p>
             </div>
-            <div class="gallery-grid">
-                <img src="20018.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
-                <img src="20020.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
-                <img src="20007.jpg" class="kitchen all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
-                <img src="20011.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
-                <img src="20014.jpg" class="garden all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
-                <img src="20015.jpg" class="garden all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+            <div class="gallery-item">
+                <img src="20002.jpg" alt="Cozy Bedroom View" onclick="openModal(this)">
+                <img src="20020.jpg" alt="Cozy Bedroom View" onclick="openModal(this)">
+                <p>The comfortable AC bedroom.</p>
             </div>
-        </div>
+            <div class="gallery-item">
+                <img src="20007.jpg" alt="Kitchen Fridge" onclick="openModal(this)">
+                <img src="20009.jpg" alt="Kitchen Fridge" onclick="openModal(this)">
+                <p>Compact and functional kitchen for self-catering.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20011.jpg" alt="Modern Bathroom Sink and Mirror" onclick="openModal(this)">
+                <img src="20013.jpg" alt="Modern Bathroom Sink and Mirror" onclick="openModal(this)">
+                <p>Modern fittings in the luxury bathroom.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20014.jpg" alt="Private Balcony Dining Area" onclick="openModal(this)">
+                <img src="20005.jpg" alt="Private Balcony Dining Area" onclick="openModal(this)">
+                <p>Dining on the peaceful private veranda.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="20015.jpg" alt="Lush Garden Entrance" onclick="openModal(this)">
+                 <img src="20030.jpg" alt="Lush Garden Entrance" onclick="openModal(this)">
+                <p>Lush, private garden entrance.</p>
+            </div>
+            </div>
     </section>
 
     <section id="reviews">
-        <h2>Guest Testimonials</h2>
-        <div style="border-left: 4px solid var(--accent-color); padding-left: 15px; margin-bottom: 20px;">
-            <p>"Very cute and new apartment... hosts are very friendly!"</p>
-            <small>— Laura Sardinha ⭐⭐⭐⭐⭐</small>
+        <h2>Guest Testimonials: Loved by Travelers</h2>
+        
+        <div class="review-card">
+            <p>"Very cute and new apartment, everything is clean, new, and cozy with a well-equipped kitchen and a washing machine. Location is great and quiet, surrounded by the jungle. And the hosts are very friendly! I can only recommend."</p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Laura Sardinha (Verified Guest)</h4>
         </div>
-        <div style="border-left: 4px solid var(--accent-color); padding-left: 15px; margin-bottom: 20px;">
-            <p>"Great price, good location, amazing hosts."</p>
-            <small>— Ojan Kalhori ⭐⭐⭐⭐⭐</small>
+        
+        <div class="review-card">
+            <p>"Great price, good location, amazing hosts. AC, solar panel hot water, private kitchen, and huge balcony. If you rent a bike, you have everything you need here. Best place I stayed in the south, highly recommend."</p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Ojan Kalhori (Verified Guest)</h4>
         </div>
+        
+        <div class="review-card">
+            <p style="font-style: normal; margin-bottom: 5px;">"Отличная вилла! Все новое, чистое и уютное. Находится в 15 минутах ходьбы от океана. Хозяева очень гостеприимные и отзывчивые. Комфортное проживание для одного или двух человек. Есть все удобства, а также две террасы с видом на джунгли. Рекомендую!"</p>
+            
+            <p style="font-size: 0.9em; color: #ff6b6b; margin-top: 10px; border-top: 1px solid #333; padding-top: 5px; font-style: italic;">
+                **English Translation:** Excellent villa! Everything is new, clean and cozy. Located just 15 minutes walk from the ocean. The hosts are very hospitable and responsive. Comfortable stay for one or two people. There are all the facilities, as well as two terraces with jungle views. Recommended!
+            </p>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <h4>— Tatiana Senchenko (Verified Guest)</h4>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">READ MORE REVIEWS ON BOOKING.COM</a>
+        </div>
+    </section>
+
+    <section id="submit-review">
+        <h2>Share Your Experience!</h2>
+        <p style="text-align: center;">We love hearing from our valued foreign guests. Submit your review below and help us share the magic of Little Villa Habaraduwa.</p>
+        
+        <form action="https://formsubmit.co/littlevilla219@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: var(--bg-color); border-radius: 8px;">
+            
+            <input type="text" name="_honey" style="display:none;">
+            
+            <input type="hidden" name="_next" value="https://littlevillahabaraduwa.com/#reviews"> 
+            
+            <input type="hidden" name="_subject" value="New Guest Review Submission from Little Villa Website!">
+
+            <div style="margin-bottom: 15px;">
+                <label for="name" style="display: block; margin-bottom: 5px; color: var(--text-color);">Your Name:</label>
+                <input type="text" name="name" id="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label for="country" style="display: block; margin-bottom: 5px; color: var(--text-color);">Country:</label>
+                <input type="text" name="country" id="country" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="review" style="display: block; margin-bottom: 5px; color: var(--text-color);">Your Review/Comments (English Only):</label>
+                <textarea name="review" id="review" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+            </div>
+            
+            <div style="text-align: center;">
+                <button type="submit" class="cta-button" style="border: none;">SUBMIT REVIEW</button>
+            </div>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9em; color: #ff6b6b;">*Note: Reviews will be manually added to the website after verification.</p>
     </section>
 
     <section id="contact">
-        <h2>Book Directly</h2>
-        <div style="text-align: center;">
-            <a href="https://wa.me/94786298651" class="social-image-link"><img src="whatsapp-logo.png"><p>WhatsApp</p></a>
-            <a href="https://www.booking.com/Share-K9BlMU" class="social-image-link"><img src="booking-logo.png"><p>Booking</p></a>
-            <a href="http://googleusercontent.com/maps.google.com/2" class="social-image-link"><img src="maps-logo.png"><p>Location</p></a>
+        <h2>Contact & Book Directly</h2>
+        <p>Connect with us instantly to check dates and book your exclusive stay:</p>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            
+            <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="social-image-link">
+                <img src="booking-logo.png" alt="Booking.com Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Book on Booking.com</p>
+            </a>
+            
+            <a href="https://wa.me/94786298651" target="_blank" class="social-image-link">
+                <img src="whatsapp-logo.png" alt="WhatsApp Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">WhatsApp Chat</p>
+            </a>
+            
+            <a href="tel:+94786298651" target="_blank" class="social-image-link">
+                <img src="phone-logo.png" alt="Phone Call Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Call Now</p>
+            </a>
+
+            <a href="https://maps.app.goo.gl/pdmFKQqoUBKEuztL8" target="_blank" class="social-image-link">
+                <img src="maps-logo.png" alt="Google Maps Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">View on Google Maps</p>
+            </a>
+            
+            <a href="https://www.facebook.com/share/17tFUAYie9/" target="_blank" class="social-image-link">
+                <img src="facebook-logo.png" alt="Facebook Logo">
+                <p style="margin: 5px 0 20px 0; color: var(--text-color);">Find us on Facebook</p>
+            </a>
+            
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px; color: var(--accent-color); font-weight: bold;">
+            Mobile: +94 78 629 8651
         </div>
     </section>
 
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <section id="location">
+        <h2>Explore the South Coast</h2>
+        <p>Little Villa is ideally situated to explore the beauty of the Southern Province, just a quick Tuk-Tuk ride to:</p>
+        <ul>
+            <li><strong>Unawatuna Beach (30 Mins):</strong> Vibrant beach life and dining.</li>
+            <li><strong>Ahangama (30 Mins):</strong> Famous for surfing and stilt fishermen.</li>
+            <li><strong>Galle Fort (45 Mins):</strong> Historical sites and boutique shopping.</li>
+        </ul>
+        
+        <div style="text-align: center;">
+            <a href="https://maps.app.goo.gl/3A74B8c9R8L6GqjV8" target="_blank" class="cta-button">GET DIRECTIONS</a>
+        </div>
+    </section>
+    
+    <div id="imageModal" class="modal">
+        <span class="close-btn" onclick="document.getElementById('imageModal').style.display='none'">×</span>
         <img class="modal-content" id="img01">
     </div>
 
+    <footer>
+        <p>© 2025 Little Villa Habaraduwa. Exclusive Accommodation for Foreign Guests.</p>
+        <p style="font-size: 0.8em; margin-top: 5px;">
+            Developed by Pamindu Randiya
+        </p>
+    </footer>
+    
     <script>
-        function toggleMute() {
-            const v = document.getElementById('villaVideo');
-            v.muted = !v.muted;
-            document.querySelector('.mute-btn').textContent = v.muted ? '🔇' : '🔊';
-        }
+        // 1. Theme Switching Function
         function toggleTheme() {
-            document.body.classList.toggle('light-mode');
-            document.getElementById('theme-toggle').textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const button = document.getElementById('theme-toggle');
+            
+            if (body.classList.contains('light-mode')) {
+                button.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                button.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
         }
-        function toggleExtendedGallery() {
-            const eg = document.getElementById('extended-gallery');
-            eg.style.display = (eg.style.display === 'block') ? 'none' : 'block';
-        }
-        function openModal(img) {
-            document.getElementById("myModal").style.display = "block";
-            document.getElementById("img01").src = img.src;
-        }
-        function closeModal() { document.getElementById("myModal").style.display = "none"; }
         
-        function filterImg(c) {
-            const imgs = document.querySelectorAll('.all');
-            imgs.forEach(i => {
-                i.style.display = (c === 'all' || i.classList.contains(c)) ? 'inline-block' : 'none';
-            });
+        // Check local storage on load to remember user preference
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('theme') === 'light') {
+                document.body.classList.add('light-mode');
+                document.getElementById('theme-toggle').textContent = '🌙';
+            } else {
+                 document.getElementById('theme-toggle').textContent = '☀️';
+            }
+        });
+
+        // 2. Image Modal/Lightbox Function
+        function openModal(element) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('img01');
+            
+            modal.style.display = "block";
+            modalImg.src = element.src;
+        }
+
+        // Close the modal when the user clicks anywhere outside of the image
+        window.onclick = function(event) {
+          const modal = document.getElementById('imageModal');
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
         }
     </script>
+
 </body>
 </html>
