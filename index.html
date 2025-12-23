@@ -3,333 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Villa Habaraduwa - Tropical Sanctuary (Foreigners Only)</title>
+    <title>Little Villa Habaraduwa - Tropical Sanctuary</title>
     <link rel="icon" type="image/png" href="favicon.png"> 
-    <meta name="description" content="Little Villa Habaraduwa: Private, tropical sanctuary for foreigners near Unawatuna. Includes AC, mini kitchen, and high-speed Wi-Fi. Book direct!">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --header-bg: #004d40;
-            --section-bg: #1e1e1e;
-            --accent-color: #4ecdc4;
-            --cta-color: #ff6b6b;
-            --light-text: #ffffff;
+            --bg-color: #121212; --text-color: #e0e0e0; --header-bg: #004d40;
+            --section-bg: #1e1e1e; --accent-color: #4ecdc4; --cta-color: #ff6b6b; --light-text: #ffffff;
         }
-
         .light-mode {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --header-bg: #00a896;
-            --section-bg: #f8f8f8;
-            --accent-color: #004d40;
-            --cta-color: #ff6b6b;
-            --light-text: #ffffff;
+            --bg-color: #ffffff; --text-color: #333333; --header-bg: #00a896;
+            --section-bg: #f8f8f8; --accent-color: #004d40; --cta-color: #ff6b6b;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            letter-spacing: 0.02em;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.5s, color 0.5s;
-        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; transition: 0.5s; }
+        header { background-color: var(--header-bg); color: var(--light-text); padding: 30px; text-align: center; }
+        header h1 { font-family: 'Playfair Display', serif; letter-spacing: 2px; }
+        
+        nav ul { list-style: none; padding: 0; text-align: center; }
+        nav ul li { display: inline; margin: 0 15px; }
+        nav a { color: var(--accent-color); text-decoration: none; font-weight: 600; }
 
-        header {
-            background-color: var(--header-bg);
-            color: var(--light-text);
-            padding: 30px;
-            text-align: center;
-        }
+        section { padding: 40px 10%; margin: 20px; background-color: var(--section-bg); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h2 { font-family: 'Playfair Display', serif; color: var(--accent-color); text-align: center; border-bottom: 2px solid var(--header-bg); padding-bottom: 10px; }
 
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 5px;
-            letter-spacing: 0.08em;
-        }
+        /* Video Styles - Controlled Size */
+        .video-wrapper { max-width: 700px; margin: 20px auto; position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        video { width: 100%; display: block; }
+        .mute-btn { position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; border: none; padding: 8px; border-radius: 50%; cursor: pointer; }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 15px;
-        }
+        /* Gallery Styles */
+        .gallery-grid { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 15px; }
+        .gallery-item { width: 45%; text-align: center; margin-bottom: 15px; }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; cursor: pointer; }
+        
+        /* Hidden Extended Gallery */
+        #extended-gallery { display: none; margin-top: 30px; border-top: 1px solid #444; padding-top: 20px; }
+        .filter-btns { text-align: center; margin-bottom: 20px; }
+        .filter-btn { background: none; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 5px 15px; cursor: pointer; border-radius: 20px; margin: 5px; }
+        .filter-btn.active { background: var(--accent-color); color: white; }
 
-        nav ul li {
-            display: inline;
-            margin: 0 18px;
-        }
-
-        nav a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        section {
-            padding: 40px 10%;
-            margin-bottom: 20px;
-            background-color: var(--section-bg);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-            border-radius: 12px;
-        }
-
-        section h2 {
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            color: var(--accent-color);
-            margin-bottom: 40px;
-            border-bottom: 3px double var(--header-bg); 
-            padding-bottom: 15px; 
-        }
-
-        /* Video Container Styles */
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        #bg-video {
-            width: 100%;
-            display: block;
-        }
-
-        .video-controls {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            transition: 0.3s;
-        }
-
-        .video-controls:hover { background: rgba(0,0,0,0.8); }
-
-        /* Gallery Category Tabs */
-        .gallery-tabs {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .tab-btn {
-            background: none;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .tab-btn.active {
-            background: var(--accent-color);
-            color: white;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            display: none; /* Hidden by default */
-            text-align: center;
-        }
-
-        .gallery-item.show { display: block; }
-
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--cta-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px;
-            transition: 0.3s;
-        }
-
+        .cta-button { display: inline-block; padding: 12px 25px; background-color: var(--cta-color); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px; }
+        .social-image-link { display: inline-block; margin: 10px; text-align: center; text-decoration: none; color: var(--text-color); }
         .social-image-link img { width: 50px; height: 50px; border-radius: 8px; }
 
-        #theme-toggle {
-            position: fixed; top: 20px; right: 20px; padding: 10px 15px;
-            border: none; border-radius: 50%; cursor: pointer;
-            background-color: var(--cta-color); color: white; z-index: 1000;
-        }
+        #theme-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 10px; border-radius: 50%; border: none; background: var(--cta-color); color: white; cursor: pointer; }
 
-        /* Modal Styles */
-        .modal {
-            display: none; position: fixed; z-index: 2000;
-            padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
-        }
-        .modal-content { margin: auto; display: block; width: 80%; max-width: 900px; }
-        .close-btn { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; cursor: pointer; }
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); padding-top: 50px; }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 800px; }
+        .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; cursor: pointer; }
 
-        @media (max-width: 600px) { section { padding: 40px 5%; } }
+        @media (max-width: 600px) { .gallery-item { width: 100%; } }
     </style>
 </head>
-<body class="dark-mode"> 
+<body class="dark-mode">
     <button id="theme-toggle" onclick="toggleTheme()">☀️</button>
 
     <header>
         <h1>Little Villa Habaraduwa</h1>
-        <p style="font-size: 1.2em; color: #ffc107;">A Private Tropical Sanctuary for Foreign Guests Only.</p>
+        <p style="color: #ffc107;">A Private Tropical Sanctuary for Foreign Guests Only.</p>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#amenities">Amenities</a></li>
                 <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#calendar">Availability</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Book Now</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home">
-        <h2>Experience the Calm</h2>
-        <div class="video-container">
-            <video id="bg-video" autoplay loop muted playsinline>
+        <h2>Unwind in Serenity.</h2>
+        <div class="video-wrapper">
+            <video id="villaVideo" autoplay loop muted playsinline>
                 <source src="Littlevillavdeo.mp4" type="video/mp4">
             </video>
-            <div class="video-controls" onclick="toggleMute()">
-                <span id="mute-icon">🔇</span>
-            </div>
+            <button class="mute-btn" onclick="toggleMute()">🔇</button>
         </div>
-        <p style="text-align: center; font-style: italic;">Watch our villa tour. Click the icon to enable sound.</p>
-        
-        <div style="text-align: center; margin-top: 20px;">
+        <p style="text-align: center; font-style: italic;">"Experience authentic Southern charm."</p>
+        <div style="text-align: center;">
             <a href="https://www.booking.com/Share-K9BlMU" target="_blank" class="cta-button">BOOK ON BOOKING.COM</a>
             <a href="https://www.airbnb.co.uk/rooms/1581836913771660159" target="_blank" class="cta-button" style="background-color: #FF5A5F;">BOOK ON AIRBNB</a>
         </div>
     </section>
 
+    <section id="amenities">
+        <h2>Exclusive Villa Amenities</h2>
+        <ul>
+            <li><strong>Air-Conditioned Bedroom:</strong> Cool escape from heat.</li>
+            <li><strong>Luxury Bathroom:</strong> Hot water & modern fittings.</li>
+            <li><strong>Mini Kitchen:</strong> Fridge, stove, toaster, and essentials.</li>
+            <li><strong>Fast Wi-Fi:</strong> SLT-Fibre Internet.</li>
+            <li><strong>Washing Machine:</strong> For long stays.</li>
+        </ul>
+    </section>
+
     <section id="gallery">
         <h2>Photo Gallery</h2>
-        <div class="gallery-tabs">
-            <button class="tab-btn active" onclick="filterGallery('all')">All</button>
-            <button class="tab-btn" onclick="filterGallery('bedroom')">Bedrooms</button>
-            <button class="tab-btn" onclick="filterGallery('kitchen')">Kitchen</button>
-            <button class="tab-btn" onclick="filterGallery('outdoor')">Outdoor</button>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="20003.jpg" onclick="openModal(this)"><p>Exterior View</p></div>
+            <div class="gallery-item"><img src="20001.jpg" onclick="openModal(this)"><p>Cozy Bed</p></div>
         </div>
         
-        <div class="gallery-grid" id="main-gallery">
-            <div class="gallery-item bedroom show"><img src="20001.jpg" onclick="openModal(this)"><p>Cozy Bed</p></div>
-            <div class="gallery-item bedroom show"><img src="20020.jpg" onclick="openModal(this)"><p>AC Bedroom</p></div>
-            <div class="gallery-item kitchen show"><img src="20007.jpg" onclick="openModal(this)"><p>Mini Kitchen</p></div>
-            <div class="gallery-item outdoor show"><img src="20014.jpg" onclick="openModal(this)"><p>Veranda</p></div>
-            <div class="gallery-item outdoor show"><img src="20015.jpg" onclick="openModal(this)"><p>Garden Entrance</p></div>
-            
-            <div class="gallery-item bedroom extra"><img src="20018.jpg" onclick="openModal(this)"><p>Bedroom Detail</p></div>
-            <div class="gallery-item kitchen extra"><img src="20009.jpg" onclick="openModal(this)"><p>Kitchen Essentials</p></div>
-            <div class="gallery-item outdoor extra"><img src="20030.jpg" onclick="openModal(this)"><p>Private Path</p></div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="cta-button" style="background-color: var(--header-bg);" onclick="toggleExtendedGallery()">EXPLORE ALL PHOTOS</button>
         </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <button id="view-all-btn" class="tab-btn" onclick="showAllPhotos()">View All Photos</button>
+
+        <div id="extended-gallery">
+            <div class="filter-btns">
+                <button class="filter-btn active" onclick="filterImg('all')">All</button>
+                <button class="filter-btn" onclick="filterImg('room')">Rooms</button>
+                <button class="filter-btn" onclick="filterImg('kitchen')">Kitchen</button>
+                <button class="filter-btn" onclick="filterImg('garden')">Garden</button>
+            </div>
+            <div class="gallery-grid">
+                <img src="20018.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+                <img src="20020.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+                <img src="20007.jpg" class="kitchen all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+                <img src="20011.jpg" class="room all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+                <img src="20014.jpg" class="garden all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+                <img src="20015.jpg" class="garden all" style="width:30%; border-radius:10px; margin:5px; cursor:pointer;" onclick="openModal(this)">
+            </div>
         </div>
     </section>
 
-    <section id="calendar">
-        <h2>Availability Calendar</h2>
-        <p style="text-align: center;">Check our free dates below:</p>
-        <div style="text-align: center; background: #333; padding: 50px; border-radius: 8px; color: #aaa;">
-            <p>[ Google Calendar Placeholder ]</p>
-            <p style="font-size: 0.8em;">Syncing with Booking.com & Airbnb...</p>
+    <section id="reviews">
+        <h2>Guest Testimonials</h2>
+        <div style="border-left: 4px solid var(--accent-color); padding-left: 15px; margin-bottom: 20px;">
+            <p>"Very cute and new apartment... hosts are very friendly!"</p>
+            <small>— Laura Sardinha ⭐⭐⭐⭐⭐</small>
+        </div>
+        <div style="border-left: 4px solid var(--accent-color); padding-left: 15px; margin-bottom: 20px;">
+            <p>"Great price, good location, amazing hosts."</p>
+            <small>— Ojan Kalhori ⭐⭐⭐⭐⭐</small>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Direct Contact</h2>
+        <h2>Book Directly</h2>
         <div style="text-align: center;">
-            <a href="https://wa.me/94786298651" target="_blank" class="social-image-link">
-                <img src="whatsapp-logo.png" alt="WhatsApp">
-                <p>WhatsApp</p>
-            </a>
-            <a href="https://www.facebook.com/share/17tFUAYie9/" target="_blank" class="social-image-link">
-                <img src="facebook-logo.png" alt="Facebook">
-                <p>Facebook</p>
-            </a>
+            <a href="https://wa.me/94786298651" class="social-image-link"><img src="whatsapp-logo.png"><p>WhatsApp</p></a>
+            <a href="https://www.booking.com/Share-K9BlMU" class="social-image-link"><img src="booking-logo.png"><p>Booking</p></a>
+            <a href="http://googleusercontent.com/maps.google.com/2" class="social-image-link"><img src="maps-logo.png"><p>Location</p></a>
         </div>
     </section>
 
-    <div id="imageModal" class="modal">
-        <span class="close-btn" onclick="document.getElementById('imageModal').style.display='none'">×</span>
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
     </div>
 
     <script>
-        // Video Sound Toggle
         function toggleMute() {
-            const video = document.getElementById('bg-video');
-            const icon = document.getElementById('mute-icon');
-            video.muted = !video.muted;
-            icon.textContent = video.muted ? '🔇' : '🔊';
+            const v = document.getElementById('villaVideo');
+            v.muted = !v.muted;
+            document.querySelector('.mute-btn').textContent = v.muted ? '🔇' : '🔊';
         }
-
-        // Gallery Filter
-        function filterGallery(category) {
-            const items = document.querySelectorAll('.gallery-item');
-            const btns = document.querySelectorAll('.tab-btn');
-            
-            btns.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            items.forEach(item => {
-                if (category === 'all') {
-                    if (!item.classList.contains('extra')) item.classList.add('show');
-                    else item.classList.remove('show');
-                } else {
-                    if (item.classList.contains(category)) item.classList.add('show');
-                    else item.classList.remove('show');
-                }
-            });
-        }
-
-        function showAllPhotos() {
-            const extras = document.querySelectorAll('.extra');
-            extras.forEach(item => item.classList.add('show'));
-            document.getElementById('view-all-btn').style.display = 'none';
-        }
-
-        // Theme Switch
         function toggleTheme() {
             document.body.classList.toggle('light-mode');
-            const btn = document.getElementById('theme-toggle');
-            btn.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+            document.getElementById('theme-toggle').textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
         }
-
-        // Modal functions
-        function openModal(element) {
-            document.getElementById('imageModal').style.display = "block";
-            document.getElementById('img01').src = element.src;
+        function toggleExtendedGallery() {
+            const eg = document.getElementById('extended-gallery');
+            eg.style.display = (eg.style.display === 'block') ? 'none' : 'block';
         }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('imageModal')) {
-                document.getElementById('imageModal').style.display = "none";
-            }
+        function openModal(img) {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("img01").src = img.src;
+        }
+        function closeModal() { document.getElementById("myModal").style.display = "none"; }
+        
+        function filterImg(c) {
+            const imgs = document.querySelectorAll('.all');
+            imgs.forEach(i => {
+                i.style.display = (c === 'all' || i.classList.contains(c)) ? 'inline-block' : 'none';
+            });
         }
     </script>
 </body>
