@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Gallery - Little Villa Habaraduwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #004d40;
+            --accent-color: #4ecdc4;
+            --section-bg: #1e1e1e;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: var(--header-bg);
+            padding: 40px;
+            color: white;
+        }
+        h1 { font-family: 'Playfair Display', serif; margin: 0; }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .category-section {
+            padding: 40px 10%;
+            border-bottom: 1px solid #333;
+        }
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            color: #ffc107;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .gallery-grid img:hover { transform: scale(1.03); }
+        
+        /* Modal Style */
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 800px; padding-top: 60px; }
+        .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; cursor: pointer; }
 
+        @media (max-width: 600px) { .gallery-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Little Villa Gallery</h1>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+</header>
+
+<section id="bedroom" class="category-section">
+    <div class="category-title">Romantic Cozy Bed & Bedroom</div>
+    <div class="gallery-grid">
+        <img src="bedroom1.jpg.jpg" alt="Bedroom 1" onclick="zoomImg(this)">
+        <img src="bedroom2.jpg.jpg" alt="Bedroom 2" onclick="zoomImg(this)">
+        <img src="29227.jpg" alt="Bedroom 3" onclick="zoomImg(this)">
+    </div>
+</section>
+
+<section id="kitchen" class="category-section">
+    <div class="category-title">Fully Equipped Mini Kitchen</div>
+    <div class="gallery-grid">
+        <img src="kitchen1.jpg.jpg" alt="Kitchen 1" onclick="zoomImg(this)">
+        <img src="kitchen2.jpg.jpg" alt="Kitchen 2" onclick="zoomImg(this)">
+        <img src="20007.jpg" alt="Kitchen 3" onclick="zoomImg(this)">
+    </div>
+</section>
+
+<section id="bathroom" class="category-section">
+    <div class="category-title">Modern Luxury Bathroom</div>
+    <div class="gallery-grid">
+        <img src="bathroom1.jpg.jpg" alt="Bathroom 1" onclick="zoomImg(this)">
+        <img src="bathroom2.jpg.jpg" alt="Bathroom 2" onclick="zoomImg(this)">
+        <img src="20011.jpg" alt="Bathroom 3" onclick="zoomImg(this)">
+    </div>
+</section>
+
+<section id="exterior" class="category-section">
+    <div class="category-title">Veranda & Lush Garden</div>
+    <div class="gallery-grid">
+        <img src="balcony1.jpg.jpg" alt="Balcony 1" onclick="zoomImg(this)">
+        <img src="balcony2.jpg.jpg" alt="Balcony 2" onclick="zoomImg(this)">
+        <img src="entrance1.jpg.jpg" alt="Entrance" onclick="zoomImg(this)">
+        <img src="20030.jpg" alt="Garden" onclick="zoomImg(this)">
+    </div>
+</section>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
+
+<script>
+    function zoomImg(el) {
+        document.getElementById("myModal").style.display = "block";
+        document.getElementById("img01").src = el.src;
+    }
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("myModal")) {
+            document.getElementById("myModal").style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
