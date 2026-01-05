@@ -739,48 +739,14 @@
         window.requestAnimationFrame(step);
     }
 
-   window.onload = () => {
-    const visitObj = document.getElementById("visitCount");
-    const rateObj = document.getElementById("ratingScore");
-
-    // Live Visitor Counter එකට ඔයාගේ පරණ අංකය (312) එකතු කිරීම
-    fetch('https://api.countapi.xyz/hit/littlevillahabaraduwa.com/visits')
-        .then(res => res.json())
-        .then(res => {
-            // මෙතන res.value එකට 312 ක් එකතු කරනවා
-            let totalVisits = res.value + 312; 
-            animateValue(visitObj, 0, totalVisits, 2000); 
-        })
-        .catch(err => {
-            // මොකක් හරි හේතුවකින් API එක වැඩ නොකළොත් අවම අංකය පෙන්වීමට
-            animateValue(visitObj, 0, 312, 2000);
-        });
-
-    // Success Rate එක ඇනිමේට් කිරීම
-    animateValue(rateObj, 0, 99.9, 2000);   
-};
+    // මෙතන end: කියන තැනට ඔයාට පෙන්වන්න ඕන අංක ලබා දෙන්න
+    window.onload = () => {
+        const visitObj = document.getElementById("visitCount");
+        const rateObj = document.getElementById("ratingScore");
+        
+        animateValue(visitObj, 0, 312, 2000); // උදා: 1250 visits
+        animateValue(rateObj, 0, 99.9, 2000);   // උදා: 99% rating
     };
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
