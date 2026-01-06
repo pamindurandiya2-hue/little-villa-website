@@ -740,8 +740,23 @@
         animateValue(rateObj, 0, 99.9, 2000);   // උදා: 99% rating
     };
 </script>
+    <script>
+    function cb(response) {
+        // ඔයාට දැනට තියෙන 315 ට අලුත් visitors ලා ගාණ එකතු කරනවා
+        const startingCount = 315;
+        const totalVisits = startingCount + response.value;
+        document.getElementById('visits').innerText = totalVisits;
+    }
+
+    // Visitor count එක ගන්නා API එක
+    const script = document.createElement('script');
+    // මෙහි 'little-villa-v1' වෙනුවට ඔයාට කැමති අලුත් නමක් දෙන්න (එතකොට 0 සිට ගණන් කිරීම පටන් ගනී)
+    script.src = 'https://api.countapi.xyz/hit/little-villa-habaraduwa-unique/visits?callback=cb';
+    document.head.appendChild(script);
+</script>
 </body>
 </html>
+
 
 
 
