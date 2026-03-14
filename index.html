@@ -492,7 +492,7 @@
     <section class="stat-container">
     <div class="stat-box">
         <i class="fas fa-users" style="color: #4ecdc4; font-size: 24px;"></i>
-        <span class="stat-number" id="visitCount">0</span>
+        <span class="stat-number" id="visits">415</span>
         <span class="stat-label">Total Visits</span>
     </div>
     <div class="stat-box">
@@ -718,27 +718,18 @@
     }
 </script>
 <script>
-    function animateValue(obj, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
+    function cb(response) {
+        const startingCount = 315;
+        const totalVisits = startingCount + response.value;
+        const visitObj = document.getElementById('visits');
+        if(visitObj) {
+            visitObj.innerText = totalVisits.toLocaleString();
+        }
     }
 
-    // මෙතන end: කියන තැනට ඔයාට පෙන්වන්න ඕන අංක ලබා දෙන්න
-    window.onload = () => {
-        const visitObj = document.getElementById("visitCount");
-        const rateObj = document.getElementById("ratingScore");
-        
-        animateValue(visitObj, 0, 315, 2000); // උදා: 1250 visits
-        animateValue(rateObj, 0, 99.9, 2000);   // උදා: 99% rating
-    };
+    const script = document.createElement('script');
+    script.src = 'https://api.countapi.xyz/hit/little-villa-habaraduwa-unique/visits?callback=cb';
+    document.head.appendChild(script);
 </script>
     <script>
     function cb(response) {
